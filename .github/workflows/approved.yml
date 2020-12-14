@@ -11,12 +11,13 @@ jobs:
         APPROVALS: "1"
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         ADD_LABEL: "approved"
-  slackNotification:
-    name: Slack Notification
+  slackNotifyWhenApproved:
+    name: Slack Notify When approved
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - name: Slack Notification
-      uses: rtCamp/action-slack-notify@v2
+    - name: Slack Notify When approved
+      uses: actions/slack-notify-when-approved@v1
       env:
+        APPROVALS: 0
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
