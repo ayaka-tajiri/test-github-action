@@ -18,6 +18,6 @@ jobs:
     - name: Slack Notify When approved
       uses: ayaka-tajiri/slack-notify-when-approved@main
       env:
-        APPROVALS: 0
+        APPROVALS: ２
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         SLACK_WEB_HOOK: ${{ secrets.SLACK_WEB_HOOK }}
