@@ -20,4 +20,4 @@ jobs:
       env:
         APPROVALS: 0
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        #SLACK_WEB_HOOK: ${{ secrets.SLACK_WEB_HOOK }}
+        SLACK_WEB_HOOK: ${{ secrets.SLACK_WEB_HOOK }}
