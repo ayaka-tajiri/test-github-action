@@ -28,4 +28,4 @@ jobs:
         SLACK_FOOTER: "slack footer"
         SLACK_ICON: ""
         SLACK_EMOJI: ""
-SLACK_CHANNEL
+        SLACK_CHANNEL: ""
