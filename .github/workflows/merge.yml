@@ -16,7 +16,10 @@ jobs:
   secoundJob:
     name: script
     runs-on: ubuntu-latest
-    defaults:
-      run:
+    steps:
+      - name: bash exec
+        run: echo $PATH
         shell: bash
         working-directory: scripts
+        env:
+          PATH: "create_tags.sh"
