@@ -23,7 +23,7 @@ else
   exit 0
 fi
 
-for value in VERSIONS
+for value in $VERSIONS
 do
   echo ">[$value]"
 done
