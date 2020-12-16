@@ -4,8 +4,9 @@ echo "run script"
 
 # get pull request number
 BRANCH=$GITHUB_HEAD_REF
+API_HEADER="Accept: application/vnd.github.v3+json"
 AUTH_HEADER="Authorization: token ${GITHUB_TOKEN}"
-CURRENT_TAG_BODY=$(curl -sSL -H "${AUTH_HEADER}" -H "${API_HEADER}" "${GITHUB_API_URL}/${GITHUB_REPOSITORY}/releases/latest")
+CURRENT_TAG_BODY=$(curl -sSL -H "${AUTH_HEADER}" -H "${API_HEADER}" "${GITHUB_API_URL}/repos/${GITHUB_REPOSITORY}/releases/latest")
 echo $CURRENT_TAG_BODY
 CURRENT_TAG_NAME=$(echo "$CURRENT_TAG_BODY" | jq --raw-output '.tag_name')
 echo $CURRENT_TAG_NAME
