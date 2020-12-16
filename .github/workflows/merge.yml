@@ -13,9 +13,3 @@ jobs:
           run: echo $(jq --raw-output .pull_request.number "$GITHUB_EVENT_PATH")
         - name: echo GITHUB_HEAD_REF
           run: echo $GITHUB_HEAD_REF
-        - name: ls -l
-          run: ls -l
-        - name: chmod
-          run: chmod +x ./.github/workflows/create_tags.sh
-        - name: exec create_tags.sh
-          run: ./.github/workflows/create_tags.sh
