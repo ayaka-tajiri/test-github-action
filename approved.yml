@@ -1,0 +1,24 @@
+on: pull_request_review
+name: approved pull requests
+jobs:
+  labelWhenApproved:
+    name: Label when approved
+    runs-on: ubuntu-latest
+    steps:
+    - name: Label when approved
+      uses: pullreminders/label-when-approved-action@master
+      env:
+        APPROVALS: 1
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        ADD_LABEL: "approved"
+  slackNotifyWhenApproved:
+    name: Slack Notify When approved
+    runs-on: ubuntu-latest
+    steps:
+    - name: Slack Notify When approved
+      uses: ayaka-tajiri/slack-notify-when-approved@fix-slack-message
+      env:
+        APPROVALS: 1
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        SLACK_WEB_HOOK: ${{ secrets.SLACK_WEB_HOOK }}
+        SLACK_MESSAGE: "test message"
