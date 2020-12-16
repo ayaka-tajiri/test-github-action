@@ -13,15 +13,13 @@ echo $CURRENT_TAG_NAME
 VERSIONS=$(echo $CURRENT_TAG_NAME | tr "." " ")
 echo ${#VERSIONS[@]}
 
-if [ `echo $branch | grep Bugfix` ]; then
+if [ `echo $BRANCH | grep Bugfix` ]; then
   VERSIONS[2]=$VERSIONS[2]+1
-elif [ `echo $branch | grep Feature` ]; then
+elif [ `echo $BRANCH | grep Feature` ]; then
   VERSIONS[1]=$VERSIONS[1]+1
 else
   echo "Not a proper branch name."
   exit 0
 fi
-
-RESULTS="$(IFS="."; echo "${VERSIONS[*]}")"
 
 echo $RESULTS
