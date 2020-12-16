@@ -12,4 +12,4 @@ jobs:
         - name: get pr number
           run: echo $(jq --raw-output .pull_request.number "$GITHUB_EVENT_PATH")
         - name: echo GITHUB_HEAD_REF
-          run: $GITHUB_HEAD_REF
+          run: echo $GITHUB_HEAD_REF
