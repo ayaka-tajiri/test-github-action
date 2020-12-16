@@ -14,3 +14,5 @@ jobs:
           run: CONTENTS=$(jq --raw-output .pull_request.number "$GITHUB_EVENT_PATH")
         - name: echo CONTENTS
           run: echo $CONTENTS
+        - name: echo GITHUB_EVENT_PATH
+          run: echo $GITHUB_EVENT_PATH
