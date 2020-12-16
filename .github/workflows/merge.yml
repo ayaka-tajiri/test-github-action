@@ -8,7 +8,7 @@ jobs:
       name: Echo GITHUB_HEAD_REF
       runs-on: ubuntu-latest
       steps:
-        - name: echo GITHUB_HEAD_REF
+        - name: echo GITHUB_HEAD_REF 
           run: echo $GITHUB_EVENT_PATH
-        - name: cat GITHUB_HEAD_REF
+        - name: cat GITHUB_HEAD_REF 
           run: cat $GITHUB_EVENT_PATH
