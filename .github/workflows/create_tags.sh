@@ -29,7 +29,7 @@ curl -sSL \
   -H "${API_HEADER}" \
   -X POST \
   -H "Content-Type: application/json" \
-  -d '{"tag_name":${NEW_REELASE_TAG}}' \
+  -d '{"tag_name":"${NEW_REELASE_TAG}"}' \
   "${GITHUB_API_URL}/repos/${GITHUB_REPOSITORY}/releases"
 
 echo "New Release Tag is ${NEW_REELASE_TAG}"
