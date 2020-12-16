@@ -11,4 +11,4 @@ jobs:
         - name: echo GITHUB_HEAD_REF
           run: echo $GITHUB_EVENT_PATH
         - name: set GITHUB_EVENT_PATH contents
-          run: cat $GITHUB_EVENT_PATH"
+          run: cat $GITHUB_EVENT_PATH
