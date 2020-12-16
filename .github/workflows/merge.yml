@@ -8,4 +8,4 @@ jobs:
       name: Echo GITHUB_HEAD_REF
       runs-on: ubuntu-latest
       steps:
-      - run: echo $(jq $GITHUB_EVENT_PATH)
+      - run: CONTENTS=$(jq "$GITHUB_EVENT_PATH") | echo $(jq $CONTENTS)
