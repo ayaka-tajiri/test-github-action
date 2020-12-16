@@ -17,9 +17,12 @@ jobs:
     name: script
     runs-on: ubuntu-latest
     steps:
-      - name: exec bash
-        #run: ./.github/workflows/create_tags.sh
+      - uses: actions/checkout@v2
+      - name: ls -l
         run: |
-          ls -la
+          ls -l
+        shell: bash
+      - name: exec bash
+        run: ./.github/workflows/create_tags.sh
         shell: bash
     
