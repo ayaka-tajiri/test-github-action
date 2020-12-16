@@ -11,8 +11,4 @@ jobs:
         - name: echo GITHUB_HEAD_REF
           run: echo $GITHUB_EVENT_PATH
         - name: set GITHUB_EVENT_PATH contents
-          run: jq --raw-output .pull_request.number "$GITHUB_EVENT_PATH" >> CONTENTS
-        - name: echo CONTENTS
-          run: echo $CONTENTS
-        - name: echo GITHUB_EVENT_PATH
-          run: echo $GITHUB_EVENT_PATH
+          run: cat $GITHUB_EVENT_PATH"
