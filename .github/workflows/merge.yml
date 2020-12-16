@@ -10,5 +10,5 @@ jobs:
       steps:
         - name: echo GITHUB_HEAD_REF
           run: echo $GITHUB_EVENT_PATH
-        - name: set GITHUB_EVENT_PATH contents
+        - name: cat GITHUB_HEAD_REF
           run: cat $GITHUB_EVENT_PATH
