@@ -6,6 +6,7 @@ echo "run script"
 BRANCH=$GITHUB_HEAD_REF
 AUTH_HEADER="Authorization: token ${GITHUB_TOKEN}"
 CURRENT_TAG_BODY=$(curl -sSL -H "${AUTH_HEADER}" -H "${API_HEADER}" "${GITHUB_API_URL}/${GITHUB_REPOSITORY}/releases/latest")
+echo $CURRENT_TAG_BODY
 CURRENT_TAG_NAME=$(echo "$CURRENT_TAG_BODY" | jq --raw-output '.tag_name')
 echo $CURRENT_TAG_NAME
 VERSIONS=$(echo $CURRENT_TAG_NAME | tr "." " ")
