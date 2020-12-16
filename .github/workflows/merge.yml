@@ -20,4 +20,3 @@ jobs:
       - name: bash exec
         run: echo "test"
         shell: bash
-        working-directory: scripts
