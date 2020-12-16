@@ -18,8 +18,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: bash exec
-        run: echo $PATH
+        run: echo "test"
         shell: bash
         working-directory: scripts
-        env:
-          PATH: "create_tags.sh"
