@@ -8,4 +8,9 @@ jobs:
       name: Echo GITHUB_HEAD_REF
       runs-on: ubuntu-latest
       steps:
-      - run: $(jq --raw-output .pull_request.number ${GITHUB_HEAD_REF}) | echo -e $(cat)
+        - name: echo GITHUB_HEAD_REF
+          run: echo $GITHUB_EVENT_PATH
+        - name: set GITHUB_EVENT_PATH contents
+          run: echo '$(jq --raw-output .pull_request.number "$GITHUB_EVENT_PATH")' >> CONTENTS
+        - name: echo CONTENTS
+          run: echo $CONTENTS
