@@ -17,6 +17,4 @@ jobs:
     name: script
     runs-on: ubuntu-latest
     steps:
-      - name: bash exec
-        run: echo "test"
-        shell: bash
+      - run: ./create_tags.sh
