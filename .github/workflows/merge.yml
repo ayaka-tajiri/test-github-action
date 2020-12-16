@@ -5,15 +5,7 @@ on:
     types: [closed]
 name: merge main
 jobs:
-  firstJob:
-      name: Echo GITHUB_HEAD_REF
-      runs-on: ubuntu-latest
-      steps:
-        - name: get pr number
-          run: echo $(jq --raw-output .pull_request.number "$GITHUB_EVENT_PATH")
-        - name: echo GITHUB_HEAD_REF
-          run: echo $GITHUB_HEAD_REF
-  secoundJob:
+  setReleaseTag:
     name: script
     runs-on: ubuntu-latest
     steps:
