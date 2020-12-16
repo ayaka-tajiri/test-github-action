@@ -25,5 +25,6 @@ else
   exit 0
 fi
 
+echo ${VERSIONS[1]}
 RESULT="${VERSIONS[0]}.${VERSIONS[1]}.${VERSIONS[2]}"
 echo $RESULT
