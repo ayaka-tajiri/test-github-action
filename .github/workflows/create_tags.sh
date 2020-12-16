@@ -13,10 +13,12 @@ VERSIONS=$(echo $CURRENT_TAG_NAME | tr "." " ")
 if [ `echo $BRANCH | grep Bugfix` ]; then
   NUMBER=${VERSIONS[2]}
   VERSIONS[2]=$(( $NUMBER+1 ))
+  echo "grep Bugfix"
   echo ${VERSIONS[2]}
 elif [ `echo $BRANCH | grep Feature` ]; then
   NUMBER=${VERSIONS[1]}
   VERSIONS[1]=$(( $NUMBER+1 ))
+  echo "grep Feature"
   echo ${VERSIONS[1]}
 else
   echo "Not a proper branch name."
