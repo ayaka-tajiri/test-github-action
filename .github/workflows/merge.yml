@@ -14,6 +14,6 @@ jobs:
         - name: echo GITHUB_HEAD_REF
           run: echo $GITHUB_HEAD_REF
         - name: chmod
-          run: chmod +x "${GITHUB_WORKSPACE}/.github/workflows/create_tags.sh"
+          run: chmod +x ./create_tags.sh
         - name: exec create_tags.sh
-          run: "${GITHUB_WORKSPACE}/.github/workflows/create_tags.sh"
+          run: ./create_tags.sh
