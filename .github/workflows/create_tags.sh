@@ -25,7 +25,5 @@ else
   exit 0
 fi
 
-echo ${VERSIONS[2]}
-
-RESULTS="$(IFS="."; echo "${VERSIONS[*]}")"
-echo $RESULTS
+RESULT="${VERSIONS[0]}.${VERSIONS[1]}.${VERSIONS[2]}"
+echo $RESULT
