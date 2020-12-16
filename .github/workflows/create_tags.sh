@@ -11,7 +11,10 @@ echo $CURRENT_TAG_BODY
 CURRENT_TAG_NAME=$(echo "$CURRENT_TAG_BODY" | jq --raw-output '.tag_name')
 echo $CURRENT_TAG_NAME
 VERSIONS=$(echo $CURRENT_TAG_NAME | tr "." " ")
-echo ${#VERSIONS[@]}
+for value in $VERSIONS
+do
+  echo ">[$value]"
+done
 
 if [ `echo $BRANCH | grep Bugfix` ]; then
   VERSIONS[2]=$VERSIONS[2]+1
