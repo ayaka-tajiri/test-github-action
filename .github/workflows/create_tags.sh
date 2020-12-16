@@ -25,10 +25,7 @@ else
   exit 0
 fi
 
-for value in $VERSIONS
-do
-  echo ">[$value]"
-done
+echo ${VERSIONS[2]}
 
 RESULTS="$(IFS="."; echo "${VERSIONS[*]}")"
 echo $RESULTS
