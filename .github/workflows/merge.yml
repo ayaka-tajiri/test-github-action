@@ -8,4 +8,4 @@ jobs:
       name: Echo GITHUB_HEAD_REF
       runs-on: ubuntu-latest
       steps:
-      - run: CONTENTS=$(jq --raw-output .pull_request.number ${GITHUB_HEAD_REF}) | echo ${CONTENTS}
+      - run: $(jq --raw-output .pull_request.number ${GITHUB_HEAD_REF}) | echo -e $(cat)
