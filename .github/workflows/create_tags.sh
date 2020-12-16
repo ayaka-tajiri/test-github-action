@@ -15,7 +15,7 @@ echo ${#VERSIONS[@]}
 
 if [ `echo $branch | grep Bugfix` ]; then
   VERSIONS[2]=$VERSIONS[2]+1
-elif [ echo $branch | grep Feature ]; then
+elif [ `echo $branch | grep Feature` ]; then
   VERSIONS[1]=$VERSIONS[1]+1
 else
   echo "Not a proper branch name."
