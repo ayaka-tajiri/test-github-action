@@ -3,7 +3,7 @@ on:
     branches:
       - main
     types: [closed]
-name: merge main
+name: merge to main
 jobs:
   setReleaseTag:
     name: script
