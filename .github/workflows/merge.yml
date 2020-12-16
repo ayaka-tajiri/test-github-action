@@ -23,4 +23,5 @@ jobs:
           chmod +x ./.github/workflows/create_tags.sh && \
           ./.github/workflows/create_tags.sh
         shell: bash
-    
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
