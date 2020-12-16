@@ -19,5 +19,5 @@ else
   exit 0
 fi
 
-RESULTS="$(IFS="."; echo "${list[*]}")"
+RESULTS="$(IFS="."; echo "${VERSIONS[*]}")"
 echo $RESULTS
