@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Slack Notify When approved
-      uses: ayaka-tajiri/slack-notify-when-approved@main
+      uses: ayaka-tajiri/slack-notify-when-approved@fix-slack-message
       env:
         APPROVALS: 1
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
