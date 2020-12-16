@@ -23,5 +23,10 @@ else
   exit 0
 fi
 
+for value in VERSIONS
+do
+  echo ">[$value]"
+done
+
 RESULTS="$(IFS="."; echo "${VERSIONS[*]}")"
 echo $RESULTS
