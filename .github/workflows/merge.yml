@@ -5,5 +5,8 @@ on:
 name: merge master
 jobs:
   firstJob:
-    - name: Echo GITHUB_HEAD_REF
-      run echo "$GITHUB_HEAD_REF"
+      name: Echo GITHUB_HEAD_REF
+      runs-on: ubuntu-latest
+      steps:
+      - name: echo
+        run: echo "$GITHUB_HEAD_REF"
