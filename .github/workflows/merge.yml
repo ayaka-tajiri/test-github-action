@@ -18,10 +18,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: ls -l
-        run: |
-          ls -la
-        shell: bash
       - name: exec bash
         run: |
           chmod +x ./.github/workflows/create_tags.sh && \
