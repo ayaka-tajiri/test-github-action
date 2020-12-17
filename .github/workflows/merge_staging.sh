@@ -39,12 +39,11 @@ if [[ "$approvals" -ge "$APPROVALS" ]] && [[ "$baseBranch" = "main" ]]; then
     commentBody="2つのApproveがあったため、stagingブランチへのマージを行いましたが、エラーが発生して失敗しました。手動でstagingブランチへマージしてください。"
   fi
 
-  curl -sSL \
+  postComment=$(curl -sSL \
       -H "${AUTH_HEADER}" \
       -H "${API_HEADER}" \
       -X POST \
       -s \
       -d "{\"body\":\"${commentBody}\"}" \
-      "${GITHUB_API_URL}/repos/${GITHUB_REPOSITORY}/issues/${number}/comments"
-  echo $commentBody
+      "${GITHUB_API_URL}/repos/${GITHUB_REPOSITORY}/issues/${number}/comments")
 fi
