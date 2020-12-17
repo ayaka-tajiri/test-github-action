@@ -18,7 +18,7 @@ done
 
 curl -sSL \
     -H "${AUTH_HEADER}" \
-    -H "${API_HEADER}" \
+    -H "Content-Type: application/json" \
     -X POST \
     -d "{\"base\":\"staging\", \"head\":\"${GITHUB_HEAD_REF}\"}" \
     "${GITHUB_API_URL}/repos/${GITHUB_REPOSITORY}/merges"
