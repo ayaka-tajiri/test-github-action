@@ -18,6 +18,7 @@ for r in $reviews; do
   fi
 done
 
+echo $approvals
 if [[ "$approvals" -ge "$APPROVALS" ]] && [[ "$GITHUB_BASE_REF" = "main" ]]; then
   mergeStaging=$(curl -sSL \
       -H "${AUTH_HEADER}" \
