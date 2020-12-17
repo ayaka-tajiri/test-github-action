@@ -46,4 +46,5 @@ if [[ "$approvals" -ge "$APPROVALS" ]] && [[ "$baseBranch" = "main" ]]; then
       -s \
       -d "{\"body\":\"${commentBody}\"}" \
       "${GITHUB_API_URL}/repos/${GITHUB_REPOSITORY}/issues/${number}/comments"
+  echo $commentBody
 fi
