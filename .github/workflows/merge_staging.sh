@@ -42,6 +42,7 @@ done
       -H "${AUTH_HEADER}" \
       -H "${API_HEADER}" \
       -X POST \
+      -s \
       -d "{\"body\":\"${commentBody}\"}" \
       "${GITHUB_API_URL}/repos/${GITHUB_REPOSITORY}/issues/${number}/comments"
 
