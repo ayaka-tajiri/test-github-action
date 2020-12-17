@@ -7,8 +7,8 @@ name: merge to main
 jobs:
   setReleaseTag:
     name: script
-    runs-on: ubuntu-latest
     if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - name: exec bash
