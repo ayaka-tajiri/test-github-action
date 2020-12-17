@@ -1,7 +1,8 @@
 #!/bin/bash
 
 number=$(jq --raw-output .pull_request.number "$GITHUB_EVENT_PATH")
-reviews=$(curl -sSL -H "${AUTH_HEADER}" -H "${API_HEADER}" "${GITHUB_API_URL}/repos/${GITHUB_REPOSITORY}/pulls/${number}/reviews?per_page=100")
+body=$(curl -sSL -H "${AUTH_HEADER}" -H "${API_HEADER}" "${GITHUB_API_URL}/repos/${GITHUB_REPOSITORY}/pulls/${number}/reviews?per_page=100")
+reviews=$(echo "$body" | jq --raw-output '.[] | {state: .state} | @base64')
 
 approvals=0
 for r in $reviews; do
