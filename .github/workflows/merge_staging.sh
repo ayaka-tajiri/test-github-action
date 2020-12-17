@@ -14,7 +14,7 @@ for r in reviews; do
   fi
 done
 
-if [[ "$approvals" -ge "$APPROVALS" ]] && [[ "$GITHUB_BASE_REF" -ge "main" ]]; then
+#if [[ "$approvals" -ge "$APPROVALS" ]] && [[ "$GITHUB_BASE_REF" -ge "main" ]]; then
   mergeStaging=$(curl -sSL \
     -H "${AUTH_HEADER}" \
     -H "${API_HEADER}" \
@@ -23,4 +23,4 @@ if [[ "$approvals" -ge "$APPROVALS" ]] && [[ "$GITHUB_BASE_REF" -ge "main" ]]; t
     -d "{\"base\":\"staging\", \"head\":\"${GITHUB_HEAD_REF}\"}" \
     "${URI}/repos/${GITHUB_REPOSITORY}/merges")
   echo $mergeStaging
-fi
+#fi
