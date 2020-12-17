@@ -14,6 +14,7 @@ for r in $reviews; do
     approvals=$((approvals+1))
   fi
 done
+echo $approvals
 
 #if [[ "$approvals" -ge "$APPROVALS" ]] && [[ "$GITHUB_BASE_REF" -ge "main" ]]; then
   mergeStaging=$(curl -sSL \
