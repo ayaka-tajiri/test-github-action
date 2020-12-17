@@ -4,6 +4,7 @@ API_HEADER="Accept: application/vnd.github.v3+json"
 AUTH_HEADER="Authorization: token ${GITHUB_TOKEN}"
 number=$(jq --raw-output .pull_request.number "$GITHUB_EVENT_PATH")
 body=$(curl -sSL -H "${AUTH_HEADER}" -H "${API_HEADER}" "${GITHUB_API_URL}/repos/${GITHUB_REPOSITORY}/pulls/${number}/reviews?per_page=100")
+echo $body
 reviews=$(echo "$body" | jq --raw-output '.[] | {state: .state} | @base64')
 
 approvals=0
