@@ -17,6 +17,7 @@ if [ `echo $BRANCH | grep Bugfix` ]; then
   NUMBER2=$(( $NUMBER2+1 ))
 elif [ `echo $BRANCH | grep Feature` ]; then
   NUMBER1=$(( $NUMBER1+1 ))
+  NUMBER2=0
 else
   echo "Not a proper branch name."
   exit 0
