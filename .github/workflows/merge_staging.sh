@@ -31,7 +31,7 @@ if [[ "$approvals" -ge "$APPROVALS" ]] && [[ "$baseBranch" = "main" ]]; then
   mergeStagingBody=$(echo $mergeStaging | sed -e 's/HTTPSTATUS\:.*//g')
 
   commentBody=""
-  if [[ $mergeStagingStatus -eq 200 ]]; then
+  if [[ $mergeStagingStatus -eq 201 ]]; then
     commentBody="2つのApproveがあったため、stagingブランチにマージされました。"
   elif [[ $mergeStagingStatus -eq 409 ]]; then
     commentBody="2つのApproveがあったため、stagingブランチへのマージを行いましたが、コンフリクトが発生して失敗しました。手動でstagingブランチへマージしてください。"
