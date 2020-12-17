@@ -43,6 +43,6 @@ done
       -H "${API_HEADER}" \
       -X POST \
       -d "{\"body\":\"${commentBody}\"}" \
-      "${GITHUB_API_URL}/repos/${GITHUB_REPOSITORY}/issues/${number}/comments")
+      "${GITHUB_API_URL}/repos/${GITHUB_REPOSITORY}/issues/${number}/comments"
 
 #fi
