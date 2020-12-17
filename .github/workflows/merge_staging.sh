@@ -26,10 +26,7 @@ done
 curl --location --request POST 'https://api.github.com/repos/ayaka-tajiri/test-github-action/merges' \
   -H "${AUTH_HEADER}" \
   --header 'Content-Type: application/json' \
-  --data-raw '{
-      "base":"staging",
-      "head":"Bugfix-when-merge-staging"
-  }'
+  -d "{\"base\":\"staging\", \"head\":\"${GITHUB_HEAD_REF}\"}"
 
 #if [[ "$approvals" -ge "$APPROVALS" ]] && [[ "$GITHUB_BASE_REF" -ge "main" ]]; then
 #  mergeStaging=$(curl -sSL \
