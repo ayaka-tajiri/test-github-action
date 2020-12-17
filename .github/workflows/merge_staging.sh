@@ -5,6 +5,7 @@ reviews=$(curl -sSL -H "${AUTH_HEADER}" -H "${API_HEADER}" "${GITHUB_API_URL}/re
 
 approvals=0
 for r in reviews; do
+  echo $r
   review="$(echo "$r" | base64 -d)"
   state=$(echo "$review" | jq --raw-output '.state')
 
