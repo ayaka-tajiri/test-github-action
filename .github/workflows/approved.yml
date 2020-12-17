@@ -32,5 +32,5 @@ jobs:
           ./.github/workflows/merge_staging.sh
         shell: bash
         env:
-          APPROVALS: 0
+          APPROVALS: 1
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
