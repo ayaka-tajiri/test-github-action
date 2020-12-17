@@ -18,7 +18,7 @@ for r in $reviews; do
   fi
 done
 
-#if [[ "$approvals" -ge "$APPROVALS" ]] && [[ "$GITHUB_BASE_REF" -ge "main" ]]; then
+#if [[ "$approvals" -ge "$APPROVALS" ]] && [[ "$GITHUB_BASE_REF" = "main" ]]; then
   mergeStaging=$(curl -sSL \
       -H "${AUTH_HEADER}" \
       -H "${API_HEADER}" \
@@ -28,6 +28,21 @@ done
       "${GITHUB_API_URL}/repos/${GITHUB_REPOSITORY}/merges")
   mergeStagingStatus=$(echo $mergeStaging | tr -d '\n' | sed -e 's/.*HTTPSTATUS://')
   mergeStagingBody=$(echo $mergeStaging | sed -e 's/HTTPSTATUS\:.*//g')
-  echo $mergeStagingStatus
-  echo $mergeStagingBody
+
+  commentBody=""
+  if [[ $mergeStagingStatus -eq 200 ]]; then
+    commentBody="2つのApproveがあったため、stagingブランチにマージされました。"
+  elif [[ $mergeStagingStatus -eq 409 ]]; then
+    commentBody="2つのApproveがあったため、stagingブランチへのマージを行いましたが、コンフリクトが発生して失敗しました。手動でstagingブランチへマージしてください。"
+  else
+    commentBody="2つのApproveがあったため、stagingブランチへのマージを行いましたが、エラーが発生して失敗しました。手動でstagingブランチへマージしてください。"
+  fi
+
+  curl -sSL \
+      -H "${AUTH_HEADER}" \
+      -H "${API_HEADER}" \
+      -X POST \
+      -d "{\"body\":\"${commentBody}\"}" \
+      "${GITHUB_API_URL}/repos/${GITHUB_REPOSITORY}/issues/${number}/comments")
+
 #fi
