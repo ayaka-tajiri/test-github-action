@@ -33,3 +33,4 @@ jobs:
         shell: bash
         env:
           APPROVALS: 0
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
