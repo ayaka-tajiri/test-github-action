@@ -23,6 +23,7 @@ done
 #    -d "{\"base\":\"staging\", \"head\":\"${GITHUB_HEAD_REF}\"}" \
 #    "${GITHUB_API_URL}/repos/${GITHUB_REPOSITORY}/merges"
 
+echo $GITHUB_REF
 echo $GITHUB_HEAD_REF
 echo $GITHUB_BASE_REF
 curl --location --request POST 'https://api.github.com/repos/ayaka-tajiri/test-github-action/merges' \
