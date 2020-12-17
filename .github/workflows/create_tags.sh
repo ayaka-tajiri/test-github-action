@@ -1,5 +1,7 @@
 #!/bin/bash
 
+echo "start"
+
 # get pull request number
 BRANCH=$GITHUB_HEAD_REF
 API_HEADER="Accept: application/vnd.github.v3+json"
