@@ -32,4 +32,4 @@ jobs:
           ./.github/workflows/merge_staging.sh
         shell: bash
         env:
-          APPROVALS: 1
+          APPROVALS: 0
