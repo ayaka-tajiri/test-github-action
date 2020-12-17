@@ -28,4 +28,6 @@ done
       "${GITHUB_API_URL}/repos/${GITHUB_REPOSITORY}/merges")
   mergeStagingStatus=$(echo $mergeStaging | tr -d '\n' | sed -e 's/.*HTTPSTATUS://')
   mergeStagingBody=$(echo $mergeStaging | sed -e 's/HTTPSTATUS\:.*//g')
+  echo $mergeStagingStatus
+  echo $mergeStagingBody
 #fi
