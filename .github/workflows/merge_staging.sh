@@ -25,5 +25,5 @@ if [[ "$approvals" -ge "$APPROVALS" ]] && [[ "$GITHUB_BASE_REF" -ge "main" ]]; t
       -X POST \
       -d "{\"base\":\"staging\", \"head\":\"${headBranch}\"}" \
       "${GITHUB_API_URL}/repos/${GITHUB_REPOSITORY}/merges")
-
+  echo $mergeStaging
 fi
