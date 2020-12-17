@@ -18,20 +18,12 @@ for r in $reviews; do
   fi
 done
 
-mergeStaging=$(curl -sSL \
-    -H "${AUTH_HEADER}" \
-    -H "${API_HEADER}" \
-    -X POST \
-    -d "{\"base\":\"staging\", \"head\":\"${headBranch}\"}" \
-    "${GITHUB_API_URL}/repos/${GITHUB_REPOSITORY}/merges")
-echo $mergeStaging
+if [[ "$approvals" -ge "$APPROVALS" ]] && [[ "$GITHUB_BASE_REF" -ge "main" ]]; then
+  mergeStaging=$(curl -sSL \
+      -H "${AUTH_HEADER}" \
+      -H "${API_HEADER}" \
+      -X POST \
+      -d "{\"base\":\"staging\", \"head\":\"${headBranch}\"}" \
+      "${GITHUB_API_URL}/repos/${GITHUB_REPOSITORY}/merges")
 
-#if [[ "$approvals" -ge "$APPROVALS" ]] && [[ "$GITHUB_BASE_REF" -ge "main" ]]; then
-#  mergeStaging=$(curl -sSL \
-#    -H "${AUTH_HEADER}" \
-#    -H "${API_HEADER}" \
-#    -X POST \
-#    -d "{\"base\":\"staging\", \"head\":\"${GITHUB_HEAD_REF}\"}" \
-#    "${GITHUB_API_URL}/repos/${GITHUB_REPOSITORY}/merges")
-#  echo $mergeStaging
-#fi
+fi
