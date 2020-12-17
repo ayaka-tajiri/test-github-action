@@ -18,7 +18,7 @@ for r in $reviews; do
   fi
 done
 
-#if [[ "$approvals" -ge "$APPROVALS" ]] && [[ "$GITHUB_BASE_REF" = "main" ]]; then
+if [[ "$approvals" -ge "$APPROVALS" ]] && [[ "$GITHUB_BASE_REF" = "main" ]]; then
   mergeStaging=$(curl -sSL \
       -H "${AUTH_HEADER}" \
       -H "${API_HEADER}" \
@@ -45,5 +45,4 @@ done
       -s \
       -d "{\"body\":\"${commentBody}\"}" \
       "${GITHUB_API_URL}/repos/${GITHUB_REPOSITORY}/issues/${number}/comments"
-
-#fi
+fi
