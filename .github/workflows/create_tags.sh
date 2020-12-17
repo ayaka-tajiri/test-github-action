@@ -23,14 +23,14 @@ else
   exit 0
 fi
 
-NEW_REELASE_TAG="${NUMBER0}.${NUMBER1}.${NUMBER2}"
+NEW_RELEASE_TAG="${NUMBER0}.${NUMBER1}.${NUMBER2}"
 
 curl -sSL \
   -H "${AUTH_HEADER}" \
   -H "${API_HEADER}" \
   -X POST \
   -H "Content-Type: application/json" \
-  -d "{\"tag_name\":\"${NEW_REELASE_TAG}\", \"name\": \"release\", \"body\": \"image-tag: ${GITHUB_SHA:0:7}\"}" \
-  "${GITHUB_API_URL}/repos/${GITHUB_REPOSITORY}/releases"
+  -d "{\"tag_name\":\"${NEW_RELEASE_TAG}\", \"name\": \"release\", \"body\": \"image-tag: ${GITHUB_SHA:0:7}\"}" \
+  "${GITHUB_API_URL}/repos/${NEW_RELEASE_TAG}/releases"
 
 echo "New Release Tag is ${NEW_REELASE_TAG}"
