@@ -16,12 +16,20 @@ for r in $reviews; do
   fi
 done
 
-curl -sSL \
-    -H "${AUTH_HEADER}" \
-    -H "Content-Type: application/json" \
-    -X POST \
-    -d "{\"base\":\"staging\", \"head\":\"${GITHUB_HEAD_REF}\"}" \
-    "${GITHUB_API_URL}/repos/${GITHUB_REPOSITORY}/merges"
+#curl -sSL \
+#    -H "${AUTH_HEADER}" \
+#    -H "Content-Type: application/json" \
+#    -X POST \
+#    -d "{\"base\":\"staging\", \"head\":\"${GITHUB_HEAD_REF}\"}" \
+#    "${GITHUB_API_URL}/repos/${GITHUB_REPOSITORY}/merges"
+
+curl --location --request POST 'https://api.github.com/repos/ayaka-tajiri/test-github-action/merges' \
+  -H "${AUTH_HEADER}" \
+  --header 'Content-Type: application/json' \
+  --data-raw '{
+      "base":"staging",
+      "head":"Bugfix-when-merge-staging"
+  }'
 
 #if [[ "$approvals" -ge "$APPROVALS" ]] && [[ "$GITHUB_BASE_REF" -ge "main" ]]; then
 #  mergeStaging=$(curl -sSL \
