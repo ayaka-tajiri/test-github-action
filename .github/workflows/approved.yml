@@ -21,3 +21,15 @@ jobs:
         APPROVALS: 1
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         SLACK_WEB_HOOK: ${{ secrets.SLACK_WEB_HOOK }}
+  mergeToStaging:
+    name: Merge To Staging branch when PR is approved
+    runs-on: ubuntu-latest
+    steps:
+      - users: actions/checkout@v2
+      - name: Merge To Staging branch when PR is approved
+        run: |
+          chmod +x ./.github/workflows/merge_staging.sh && \
+          ./.github/workflows/merge_staging.sh
+        shell: bash
+        env:
+          APPROVALS: 1
