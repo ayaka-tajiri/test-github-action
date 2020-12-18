@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo $GITHUB_EVENT_PATH
+cat $GITHUB_EVENT_PATH
 API_HEADER="Accept: application/vnd.github.v3+json"
 AUTH_HEADER="Authorization: token ${GITHUB_TOKEN}"
 number=$(jq --raw-output .pull_request.number "$GITHUB_EVENT_PATH")
