@@ -33,4 +33,4 @@ curl -sSL \
   -d "{\"tag_name\":\"${NEW_RELEASE_TAG}\", \"name\": \"release\", \"body\": \"image-tag: ${GITHUB_SHA:0:7}\"}" \
   "${GITHUB_API_URL}/repos/${GITHUB_REPOSITORY}/releases"
 
-echo "New Release Tag is ${NEW_REELASE_TAG}"
+echo "New Release Tag is ${NEW_RELEASE_TAG}"
