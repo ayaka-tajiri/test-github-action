@@ -1,7 +1,6 @@
 #!/bin/bash
 
 BRANCH=$GITHUB_HEAD_REF
-echo $BRANCH
 API_HEADER="Accept: application/vnd.github.v3+json"
 AUTH_HEADER="Authorization: token ${GITHUB_TOKEN}"
 CURRENT_TAG_BODY=$(curl -sSL -H "${AUTH_HEADER}" -H "${API_HEADER}" "${GITHUB_API_URL}/repos/${GITHUB_REPOSITORY}/releases/latest")
@@ -25,6 +24,7 @@ fi
 
 NEW_RELEASE_TAG="${NUMBER0}.${NUMBER1}.${NUMBER2}"
 
+echo "${GITHUB_API_URL}/repos/${NEW_RELEASE_TAG}/releases"
 curl -sSL \
   -H "${AUTH_HEADER}" \
   -H "${API_HEADER}" \
