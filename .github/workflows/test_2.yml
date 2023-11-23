@@ -1,0 +1,12 @@
+on:
+  workflow_run:
+    workflows: [GitHub Actions Demo]
+    types:
+      - completed
+    paths:
+      - "**.yml"
+jobs:
+  OUTPUT:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "🎉 SUCCESS"
