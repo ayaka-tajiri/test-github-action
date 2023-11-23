@@ -1,10 +1,8 @@
 on:
   workflow_run:
-    workflows: [GitHub Actions Demo]
+    workflows: [GitHub Actions Demo,GitHub Actions Demo 3]
     types:
       - completed
-    paths:
-      - "**.yml"
 jobs:
   OUTPUT:
     runs-on: ubuntu-latest
