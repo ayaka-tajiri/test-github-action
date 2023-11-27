@@ -1,11 +1,5 @@
 on:
   workflow_call:
-    secrets:
-      RAILS_MASTER_KEY:
-        required: true
-      TOKEN:
-        required: true
-
 jobs:
   OUTPUT:
     runs-on: ubuntu-latest
