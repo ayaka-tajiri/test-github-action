@@ -19,6 +19,11 @@ jobs:
           for file in ${{ steps.find-changed-files.outputs.all_changed_files }}; do
             echo "$file was changed"
           done
+          
+          echo "ANY_CHANGED=steps.find-changed-files.outputs.test_any_changed" >> $GITHUB_ENV
 
   example:
+    needs:
+      - file_changes
+    if: {{ env.ANY_CHANGED  == 'true' }}
     uses: ./.github/workflows/test_2.yml
