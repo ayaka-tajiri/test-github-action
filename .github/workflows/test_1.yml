@@ -15,16 +15,10 @@ jobs:
             **.md
 
       - name: List all changed files
-        run: |
-          echo "ANY_CHANGED=steps.find-changed-files.outputs.test_any_changed" >> $GITHUB_ENV
+        run: echo "ANY_CHANGED=${steps.find-changed-files.outputs.test_any_changed}}" >> $GITHUB_ENV
 
       - name: echo env
         run: echo $ANY_CHANGED
-
-      - name: Dump GitHub context
-        env:
-          GITHUB_CONTEXT: ${{ toJson(github.env) }}
-        run: echo "$GITHUB_CONTEXT"
 
   example:
     needs:
