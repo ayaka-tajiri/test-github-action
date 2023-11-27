@@ -21,6 +21,8 @@ jobs:
           done
           
           echo "ANY_CHANGED=steps.find-changed-files.outputs.test_any_changed" >> $GITHUB_ENV
+          
+          echo "$ANY_CHANGED"
 
   example:
     needs:
