@@ -27,8 +27,10 @@ jobs:
     runs-on: ubuntu-latest
     needs:
       - file_changes
-    if: env.ANY_CHANGED == 'false'
+#    if: env.ANY_CHANGED == 'false'
+    env:
+      ANY_CHANGED: ${{ env.ANY_CHANGED }}
     steps:
       - name: echo
-        run: echo "TEST"
+        run: echo ${{ env.ANY_CHANGED }}
 #    uses: ./.github/workflows/test_2.yml
