@@ -1,10 +1,26 @@
 on:
-  workflow_run:
-    workflows: [GitHub Actions Demo,GitHub Actions Demo 3]
-    types:
-      - completed
+  workflow_call:
+    secrets:
+      RAILS_MASTER_KEY:
+        required: true
+      TOKEN:
+        required: true
+
 jobs:
   OUTPUT:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "🎉 SUCCESS"
+      - uses: actions/checkout@v4
+
+      - name: Find changed files
+        id: find-changed-files
+        uses: tj-actions/changed-files@v39
+        with:
+          files: |
+            **.md
+
+      - name: List all changed files markdown files
+        run: |
+          for file in ${{ steps.changed-markdown-files.outputs.all_changed_files }}; do
+            echo "$file was changed"
+          done
