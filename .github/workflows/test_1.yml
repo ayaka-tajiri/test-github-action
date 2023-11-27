@@ -25,5 +25,5 @@ jobs:
   example:
     needs:
       - file_changes
-    if: {{ env.ANY_CHANGED  == 'true' }}
+    if: env.ANY_CHANGED  == 'true'
     uses: ./.github/workflows/test_2.yml
