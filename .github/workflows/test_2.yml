@@ -9,6 +9,9 @@ jobs:
       - name: Find changed files
         id: find-changed-files
         uses: tj-actions/changed-files@v40
+        with:
+          files: |
+            **.md
 
       - name: List all changed files
         run: |
