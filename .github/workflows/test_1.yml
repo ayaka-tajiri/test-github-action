@@ -10,13 +10,10 @@ jobs:
       - name: Find changed files
         id: find-changed-files
         uses: tj-actions/changed-files@v40
-        with:
-          files: |
-            **.md
 
-      - name: List all changed files markdown files
+      - name: List all changed files
         run: |
-          for file in ${{ steps.changed-markdown-files.outputs.all_changed_files }}; do
+          for file in ${{ steps.find-changed-files.outputs.all_changed_files }}; do
             echo "$file was changed"
           done
 
