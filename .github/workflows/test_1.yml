@@ -20,10 +20,7 @@ jobs:
           for file in ${{ steps.find-changed-files.outputs.all_changed_files }}; do
             echo "$file was changed"
           done
-
-      - name: output
-        run: |
-          echo ${{ steps.find-changed-files.outputs.test_any_changed }}
+          echo ${{ steps.find-changed-files.outputs.test_any_changed == true }}
 
       - name: List all changed files
         run: |
