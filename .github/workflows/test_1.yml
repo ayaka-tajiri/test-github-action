@@ -13,7 +13,7 @@ jobs:
         with:
           files_yaml: |
             doc:
-              - **.md
+              - '**.md'
 
       - name: List all changed files
         run: |
