@@ -17,12 +17,6 @@ jobs:
 
       - name: List all changed files
         run: |
-          for file in ${{ steps.find-changed-files.outputs.all_changed_files }}; do
-            echo "$file was changed"
-          done
-
-      - name: List all changed files
-        run: |
           echo "ANY_CHANGED=${{ steps.find-changed-files.outputs.doc_any_changed == 'true' }}" >> $GITHUB_ENV
 
       - name: echo env
@@ -32,5 +26,5 @@ jobs:
   example:
     needs:
       - file_changes
-    if: github.ANY_CHANGED  == 'true'
+    if: github.env.ANY_CHANGED  == 'true'
     uses: ./.github/workflows/test_2.yml
