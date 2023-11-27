@@ -20,11 +20,10 @@ jobs:
           for file in ${{ steps.find-changed-files.outputs.all_changed_files }}; do
             echo "$file was changed"
           done
-          echo ${{ steps.find-changed-files.outputs.test_any_changed == true }}
 
       - name: List all changed files
         run: |
-          echo "ANY_CHANGED=${{steps.find-changed-files.outputs.test_any_changed}}" >> $GITHUB_ENV
+          echo "ANY_CHANGED=${{ steps.find-changed-files.outputs.test_any_changed == true }}" >> $GITHUB_ENV
 
       - name: echo env
         run: |
