@@ -4,6 +4,8 @@ on: [push]
 jobs:
   file_changes:
     runs-on: ubuntu-latest
+    outputs:
+      output1: ${{ steps.find-changed-files.outputs.doc_any_changed }}
     steps:
       - uses: actions/checkout@v4
 
@@ -32,5 +34,5 @@ jobs:
 #      ANY_CHANGED: ${{ env.ANY_CHANGED }}
     steps:
       - name: echo
-        run: echo ${{ needs.file_changes.outputs.doc_any_changed }}
+        run: echo ${{ needs.file_changes.outputs.output1 }}
 #    uses: ./.github/workflows/test_2.yml
