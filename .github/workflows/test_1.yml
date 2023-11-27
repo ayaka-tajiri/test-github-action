@@ -10,10 +10,16 @@ jobs:
       - name: Find changed files
         id: find-changed-files
         uses: tj-actions/changed-files@v40
-        with:
-          files: |
-            **.md
-            **.yml
+#        with:
+#          files: |
+#            **.md
+#            **.yml
+
+      - name: List all changed files
+        run: |
+          for file in ${{ steps.find-changed-files.outputs.all_changed_files }}; do
+            echo "$file was changed"
+          done
 
       - name: output
         run: |
