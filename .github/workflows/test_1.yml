@@ -28,9 +28,9 @@ jobs:
     needs:
       - file_changes
     if: ${{ needs.file_changes.outputs.doc_any_changed == 'false' }}
-    env:
-      ANY_CHANGED: ${{ env.ANY_CHANGED }}
+#    env:
+#      ANY_CHANGED: ${{ env.ANY_CHANGED }}
     steps:
       - name: echo
-        run: echo ${{ env.ANY_CHANGED }}
+        run: echo ${{ needs.file_changes.outputs.doc_any_changed }}
 #    uses: ./.github/workflows/test_2.yml
