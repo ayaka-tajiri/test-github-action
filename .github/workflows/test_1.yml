@@ -10,9 +10,9 @@ jobs:
       - name: Find changed files
         id: find-changed-files
         uses: tj-actions/changed-files@v40
-        with:
-          files: |
-            **.md
+#        with:
+#          files: |
+#            **.md
 
       - name: List all changed files
         run: echo "ANY_CHANGED=${{steps.find-changed-files.outputs.test_any_changed}}" >> $GITHUB_ENV
