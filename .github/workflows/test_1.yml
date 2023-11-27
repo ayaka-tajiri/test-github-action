@@ -2,5 +2,23 @@ name: GitHub Actions Demo
 run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 on: [push]
 jobs:
+  file_changes:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Find changed files
+        id: find-changed-files
+        uses: tj-actions/changed-files@v40
+        with:
+          files: |
+            **.md
+
+      - name: List all changed files markdown files
+        run: |
+          for file in ${{ steps.changed-markdown-files.outputs.all_changed_files }}; do
+            echo "$file was changed"
+          done
+
   example:
     uses: ./.github/workflows/test_2.yml
